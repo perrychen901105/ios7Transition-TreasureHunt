@@ -717,10 +717,12 @@
 		7B3201221785AECC00BACD11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: wei zhou (6XNV3B3N8E)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/TreasureHunt-Prefix.pch";
 				INFOPLIST_FILE = "Sources/TreasureHunt-Info.plist";
 				PRODUCT_NAME = TreasureHunt;
+				PROVISIONING_PROFILE = "4131B4A6-C945-49F3-9DA6-384E7010F1C5";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WARNING_CFLAGS = (
 					"-Wall",
@@ -734,10 +736,12 @@
 		7B3201231785AECC00BACD11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: wei zhou (6XNV3B3N8E)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/TreasureHunt-Prefix.pch";
 				INFOPLIST_FILE = "Sources/TreasureHunt-Info.plist";
 				PRODUCT_NAME = TreasureHunt;
+				PROVISIONING_PROFILE = "4131B4A6-C945-49F3-9DA6-384E7010F1C5";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WARNING_CFLAGS = (
 					"-Wall",

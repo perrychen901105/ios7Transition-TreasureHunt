@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E528D9C6-95B9-44E5-B120-A0A6F3A75DDF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TreasureHunt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>39527A73-19F1-4499-9473-B8C5778AB773</key>
+		<string>https://github.com/perrychen901105/ios7Transition-TreasureHunt</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TreasureHunt.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>39527A73-19F1-4499-9473-B8C5778AB773</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/perrychen901105/ios7Transition-TreasureHunt</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>39527A73-19F1-4499-9473-B8C5778AB773</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39527A73-19F1-4499-9473-B8C5778AB773</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios7Transition-TreasureHunt</string>
+		</dict>
+	</array>
+</dict>
+</plist>
