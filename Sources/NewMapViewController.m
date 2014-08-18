@@ -228,6 +228,7 @@
 	imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 	imagePicker.delegate = self;
 	imagePicker.allowsEditing = NO;
+    imagePicker.view.tintColor = self.view.tintColor;
 	[self.navigationController presentViewController:imagePicker animated:YES completion:nil];
 }
 

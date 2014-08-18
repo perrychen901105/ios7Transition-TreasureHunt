@@ -32,7 +32,7 @@
 	// have a pull-to-refresh control that gets used to download an updated
 	// list of items from the server.
 	[self.refreshControl addTarget:self action:@selector(downloadNewMaps) forControlEvents:UIControlEventValueChanged];
-
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"SharedMapsBarIcon-Selected"];
 	// Add two swipe gesture recognizers to the view. A swipe to the right will
 	// show the special swipe menu; a swipe to the left closes it.
 	UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];

@@ -27,6 +27,9 @@
 	// view controllers here. The user switches between them using the segmented
 	// control at the bottom of the screen.
 
+    self.view.tintColor = [UIColor whiteColor];
+    self.view.tintColor = [UIColor colorWithRed:140/255.0f green:70/255.0f blue:35/255.0f alpha:1.0f];
+    
 	PhotoViewController *photoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
 	[self addChildViewController:photoViewController atIndex:0];
 	photoViewController.photo = [self.map loadPhoto];

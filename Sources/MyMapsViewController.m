@@ -30,7 +30,8 @@
 
 	// Display an Edit button in the navigation bar.
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    self.tabBarItem.selectedImage = [UIImage imageNamed:@"MyMapsBarIcon-Selected"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Crown"]];
 	#if CUSTOM_APPEARANCE
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AppTitle"]];
 
