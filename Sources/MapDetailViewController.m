@@ -6,7 +6,9 @@
 #import "NewClueViewController.h"
 #import "DataModel.h"
 
-@interface MapDetailViewController ()
+@interface MapDetailViewController () <UIScrollViewDelegate,UINavigationBarDelegate>
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, weak) IBOutlet UIView *contentView;
 @end
 
@@ -16,6 +18,12 @@
 	NSUInteger _activeIndex;
 	CluesViewController *_cluesViewController;
 	NewClueViewController *_newClueViewController;
+    BOOL _hidesStatusBar;
+}
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
 }
 
 - (void)viewDidLoad
@@ -33,7 +41,8 @@
 	PhotoViewController *photoViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
 	[self addChildViewController:photoViewController atIndex:0];
 	photoViewController.photo = [self.map loadPhoto];
-
+    photoViewController.scrollView.delegate = self;
+    
 	InstructionsViewController *instructionsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"InstructionsViewController"];
 	[self addChildViewController:instructionsViewController atIndex:1];
 	instructionsViewController.name = self.map.name;
@@ -45,6 +54,30 @@
 
 	_activeIndex = NSNotFound;
 	[self switchToViewControllerAtIndex:0];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                           action:@selector(tapped:)];
+    [photoViewController.scrollView addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)tapped:(UIGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateEnded && _hidesStatusBar) {
+        [self showBars];
+    }
+}
+
+- (void)showBars
+{
+    _hidesStatusBar = NO;
+    self.navigationBar.hidden = NO;
+    self.toolbar.hidden = NO;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+        self.navigationBar.alpha = 1.0f;
+        self.toolbar.alpha = 1.0f;
+    }];
 }
 
 - (void)addChildViewController:(UIViewController *)childController atIndex:(NSUInteger)index
@@ -75,6 +108,31 @@
 - (IBAction)close:(id)sender
 {
 	[self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (!_hidesStatusBar) {
+        [self hideBars];
+    }
+}
+
+- (void)hideBars
+{
+    _hidesStatusBar = YES;
+    [UIView animateWithDuration:0.25 animations:^{
+        [self setNeedsStatusBarAppearanceUpdate];
+        self.navigationBar.alpha = 0.0f;
+        self.toolbar.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        self.navigationBar.hidden = YES;
+        self.toolbar.hidden = YES;
+    }];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return _hidesStatusBar;
 }
 
 #pragma mark - Clues
