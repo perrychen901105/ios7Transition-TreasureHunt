@@ -23,4 +23,11 @@
 	#endif
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.instructionsTextView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 44.0f, 0.0f);
+}
+
 @end
