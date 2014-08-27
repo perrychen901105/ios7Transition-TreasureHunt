@@ -1,7 +1,6 @@
 
 #import "NewMapViewController.h"
 #import "AwardTypeViewController.h"
-#import "DatePickerViewController.h"
 
 @interface NewMapViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -16,7 +15,6 @@
 
 @implementation NewMapViewController
 {
-	DatePickerViewController *_datePickerViewController;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -171,53 +169,12 @@
 
 - (void)showDatePicker
 {
-	// The date picker lives inside its own view controller. We add that as a
-	// child view controller on top of the navigation controller, so that it
-	// (temporarily) disables all of the underlying controls.
 
-	if (_datePickerViewController == nil) {
-		_datePickerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DatePickerViewController"];
-	}
-
-	if (_datePickerViewController.view.superview == nil) {
-		[self.navigationController addChildViewController:_datePickerViewController];
-		[self.navigationController.view addSubview:_datePickerViewController.view];
-		[_datePickerViewController didMoveToParentViewController:self.navigationController];
-
-		_datePickerViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		_datePickerViewController.date = self.date;
-		_datePickerViewController.doneButton.target = self;
-		_datePickerViewController.doneButton.action = @selector(hideDatePicker);
-
-		// Note: Using self.navigationController.view.frame does not work well
-		// in landscape mode; it always stays in the portrait dimensions, so we
-		// use a little trick by digging through the superviews instead.
-		CGRect endFrame = self.view.superview.superview.frame;
-		CGRect startFrame = endFrame;
-		startFrame.origin.y = startFrame.size.height;
-		_datePickerViewController.view.frame = startFrame;
-
-		[UIView animateWithDuration:0.4 animations:^{
-			_datePickerViewController.view.frame = endFrame;
-		}];
-	}
 }
 
 - (void)hideDatePicker
 {
-	self.date = _datePickerViewController.date;
-    self.dateLabel.text = [self formatDate:self.date];
 
-	[UIView animateWithDuration:0.4 animations:^ {
-		CGRect endFrame = self.view.superview.superview.frame;
-		endFrame.origin.y = endFrame.size.height;
-		_datePickerViewController.view.frame = endFrame;
-
-	} completion:^(BOOL finished) {
-		[_datePickerViewController willMoveToParentViewController:nil];
-		[_datePickerViewController.view removeFromSuperview];
-		[_datePickerViewController removeFromParentViewController];
-	}];
 }
 
 #pragma mark - Photo Picker

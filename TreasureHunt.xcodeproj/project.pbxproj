@@ -21,7 +21,6 @@
 		7BA9FFE6179EFFA8004D9543 /* Clue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFC6179EFFA8004D9543 /* Clue.m */; };
 		7BA9FFE7179EFFA8004D9543 /* CluesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFC8179EFFA8004D9543 /* CluesViewController.m */; };
 		7BA9FFE8179EFFA8004D9543 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFCA179EFFA8004D9543 /* DataModel.m */; };
-		7BA9FFE9179EFFA8004D9543 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFCC179EFFA8004D9543 /* DatePickerViewController.m */; };
 		7BA9FFEA179EFFA8004D9543 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFCE179EFFA8004D9543 /* InstructionsViewController.m */; };
 		7BA9FFEB179EFFA8004D9543 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFCF179EFFA8004D9543 /* main.m */; };
 		7BA9FFEC179EFFA8004D9543 /* MapDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9FFD1179EFFA8004D9543 /* MapDetailViewController.m */; };
@@ -58,8 +57,6 @@
 		7BA9FFC8179EFFA8004D9543 /* CluesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CluesViewController.m; path = Sources/CluesViewController.m; sourceTree = SOURCE_ROOT; };
 		7BA9FFC9179EFFA8004D9543 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataModel.h; path = Sources/DataModel.h; sourceTree = SOURCE_ROOT; };
 		7BA9FFCA179EFFA8004D9543 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataModel.m; path = Sources/DataModel.m; sourceTree = SOURCE_ROOT; };
-		7BA9FFCB179EFFA8004D9543 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatePickerViewController.h; path = Sources/DatePickerViewController.h; sourceTree = SOURCE_ROOT; };
-		7BA9FFCC179EFFA8004D9543 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatePickerViewController.m; path = Sources/DatePickerViewController.m; sourceTree = SOURCE_ROOT; };
 		7BA9FFCD179EFFA8004D9543 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstructionsViewController.h; path = Sources/InstructionsViewController.h; sourceTree = SOURCE_ROOT; };
 		7BA9FFCE179EFFA8004D9543 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InstructionsViewController.m; path = Sources/InstructionsViewController.m; sourceTree = SOURCE_ROOT; };
 		7BA9FFCF179EFFA8004D9543 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Sources/main.m; sourceTree = SOURCE_ROOT; };
@@ -205,8 +202,6 @@
 				7BA9FFC4179EFFA8004D9543 /* AwardTypeViewController.m */,
 				7BA9FFC7179EFFA8004D9543 /* CluesViewController.h */,
 				7BA9FFC8179EFFA8004D9543 /* CluesViewController.m */,
-				7BA9FFCB179EFFA8004D9543 /* DatePickerViewController.h */,
-				7BA9FFCC179EFFA8004D9543 /* DatePickerViewController.m */,
 				7BA9FFCD179EFFA8004D9543 /* InstructionsViewController.h */,
 				7BA9FFCE179EFFA8004D9543 /* InstructionsViewController.m */,
 				7BA9FFD0179EFFA8004D9543 /* MapDetailViewController.h */,
@@ -301,7 +296,6 @@
 				7BA9FFE6179EFFA8004D9543 /* Clue.m in Sources */,
 				7BA9FFE7179EFFA8004D9543 /* CluesViewController.m in Sources */,
 				7BA9FFE8179EFFA8004D9543 /* DataModel.m in Sources */,
-				7BA9FFE9179EFFA8004D9543 /* DatePickerViewController.m in Sources */,
 				7BA9FFEA179EFFA8004D9543 /* InstructionsViewController.m in Sources */,
 				7BA9FFEB179EFFA8004D9543 /* main.m in Sources */,
 				7BA9FFEC179EFFA8004D9543 /* MapDetailViewController.m in Sources */,
