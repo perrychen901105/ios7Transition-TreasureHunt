@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9DA63219B3747900EBAEFA /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9DA63119B3747900EBAEFA /* UIImage+ImageEffects.m */; };
+		2C9DA63419B3748C00EBAEFA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C9DA63319B3748C00EBAEFA /* Accelerate.framework */; };
 		2CF4D4C619A22B0500FE7BCB /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF4D4C519A22B0500FE7BCB /* Media.xcassets */; };
 		7B3200F71785AECC00BACD11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3200F61785AECC00BACD11 /* UIKit.framework */; };
 		7B3200F91785AECC00BACD11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3200F81785AECC00BACD11 /* Foundation.framework */; };
@@ -37,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C9DA63019B3747900EBAEFA /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = SOURCE_ROOT; };
+		2C9DA63119B3747900EBAEFA /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = SOURCE_ROOT; };
+		2C9DA63319B3748C00EBAEFA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		2CF4D4C519A22B0500FE7BCB /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = SOURCE_ROOT; };
 		7B3200F31785AECC00BACD11 /* TreasureHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TreasureHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B3200F61785AECC00BACD11 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9DA63419B3748C00EBAEFA /* Accelerate.framework in Frameworks */,
 				7B3200F71785AECC00BACD11 /* UIKit.framework in Frameworks */,
 				7B3200F91785AECC00BACD11 /* Foundation.framework in Frameworks */,
 				7B3200FB1785AECC00BACD11 /* CoreGraphics.framework in Frameworks */,
@@ -131,6 +137,7 @@
 		7B3200F51785AECC00BACD11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C9DA63319B3748C00EBAEFA /* Accelerate.framework */,
 				7B3200F61785AECC00BACD11 /* UIKit.framework */,
 				7B3200F81785AECC00BACD11 /* Foundation.framework */,
 				7B3200FA1785AECC00BACD11 /* CoreGraphics.framework */,
@@ -198,6 +205,8 @@
 		7BF89F00178C4B4000F91E62 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2C9DA63019B3747900EBAEFA /* UIImage+ImageEffects.h */,
+				2C9DA63119B3747900EBAEFA /* UIImage+ImageEffects.m */,
 				7BA9FFC3179EFFA8004D9543 /* AwardTypeViewController.h */,
 				7BA9FFC4179EFFA8004D9543 /* AwardTypeViewController.m */,
 				7BA9FFC7179EFFA8004D9543 /* CluesViewController.h */,
@@ -307,6 +316,7 @@
 				7BA9FFF2179EFFA8004D9543 /* TabBarController.m in Sources */,
 				7BA9FFF4179EFFA8004D9543 /* TreasureMap.m in Sources */,
 				7BA9FFF5179EFFA8004D9543 /* UIImage+Resize.m in Sources */,
+				2C9DA63219B3747900EBAEFA /* UIImage+ImageEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

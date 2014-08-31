@@ -2,6 +2,7 @@
 #import "SharedMapsViewController.h"
 #import "DataModel.h"
 #import "MapDetailViewController.h"
+#import "UIImage+ImageEffects.h"
 
 @interface SharedMapsViewController () <UIAlertViewDelegate, UISearchDisplayDelegate>
 

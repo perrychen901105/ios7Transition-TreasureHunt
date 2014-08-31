@@ -3,6 +3,7 @@
 #import "DataModel.h"
 #import "NewMapViewController.h"
 #import "MapDetailViewController.h"
+#import "UIImage+ImageEffects.h"
 
 @interface MyMapsViewController () <UIActionSheetDelegate>
 
