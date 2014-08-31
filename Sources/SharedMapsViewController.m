@@ -43,6 +43,8 @@
 	swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 	[self.tableView addGestureRecognizer:swipeLeftGestureRecognizer];
 
+    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+    
 	#if CUSTOM_APPEARANCE
 	UIImageView *tableImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableBackground"]];
 	tableImageView.contentMode = UIViewContentModeBottom;
@@ -66,6 +68,16 @@
 {
 	[super viewWillAppear:animated];
 	[self.tableView reloadData];
+}
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    self.searchDisplayController.searchBar.showsCancelButton = YES;
+}
+
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    self.searchDisplayController.searchBar.showsCancelButton = NO;
 }
 
 #pragma mark - Table View

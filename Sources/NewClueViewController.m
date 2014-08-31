@@ -15,6 +15,8 @@
 	[super viewDidLoad];
 	self.textView.text = @"";
 
+    self.contentView.layer.cornerRadius = 6.0f;
+    
 	#if CUSTOM_APPEARANCE
 	UIImage *buttonImage = [[UIImage imageNamed:@"BarButtonItem-Portrait"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 7.0f, 0.0f, 7.0f)];
 
@@ -42,6 +44,15 @@
 {
 	[super viewDidAppear:animated];
 	[self.textView becomeFirstResponder];
+    
+    self.view.window.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
+    self.view.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.view.window.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
 }
 
 - (void)viewWillLayoutSubviews
