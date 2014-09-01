@@ -33,6 +33,19 @@
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tabBarItem.selectedImage = [UIImage imageNamed:@"MyMapsBarIcon-Selected"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Crown"]];
+    
+    self.tableView.backgroundColor = [UIColor colorWithRed:40/255.0f green:20/255.0f blue:10/255.0f alpha:1.0f];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableFooterView = footerView;
+    
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.0f alpha:0.2f];
+    
+    self.tableView.rowHeight = 80.0f;
+    if ([self.tableView respondsToSelector:@selector(separatorInset)]) {
+        self.tableView.separatorInset = UIEdgeInsetsZero;
+    }
+    
+    
 	#if CUSTOM_APPEARANCE
 	self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AppTitle"]];
 
@@ -80,6 +93,23 @@
 	cell.textLabel.text = map.name;
 	cell.imageView.image = map.thumbnail;
 
+    
+    UIColor *tintColor = [UIColor colorWithRed:140/255.0f green:70/255.0f blue:35/255.0f alpha:0.2f];
+    UIImage *backgroundImage = [map.thumbnail applyBlurWithRadius:2
+                                                        tintColor:tintColor
+                                            saturationDeltaFactor:0.8
+                                                        maskImage:nil];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.alpha = 0.8f;
+    cell.backgroundView = imageView;
+    
+    cell.imageView.layer.cornerRadius = 30.0f;
+    cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.imageView.layer.borderWidth = 1.0f;
+    cell.imageView.clipsToBounds = YES;
+    
 	return cell;
 }
 
@@ -99,6 +129,19 @@
 
         [actionSheet showFromTabBar:self.tabBarController.tabBar];
 	}
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.2f];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.0f alpha:0.8f];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+    if ([self.tableView respondsToSelector:@selector(tintColor)]) {
+        cell.tintColor = cell.textLabel.textColor;
+    }
+    
 }
 
 #if CUSTOM_APPEARANCE
@@ -131,6 +174,8 @@
 	[button sizeToFit];
 	[button addTarget:self action:@selector(disclosureButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 	cell.accessoryView = button;
+    
+    
 }
 
 - (void)disclosureButtonTapped:(UIButton *)button

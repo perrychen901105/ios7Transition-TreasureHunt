@@ -46,6 +46,15 @@
 
     self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
     
+    self.tableView.backgroundColor = [UIColor colorWithRed:40/255.0f green:20/255.0f blue:10/255.0f alpha:1.0f];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableFooterView = footerView;
+    
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.0f alpha:0.2f];
+    
+    self.tableView.rowHeight = 80.0f;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
+    
 	#if CUSTOM_APPEARANCE
 	UIImageView *tableImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableBackground"]];
 	tableImageView.contentMode = UIViewContentModeBottom;
@@ -107,6 +116,13 @@
 		TreasureMap *map = _searchResults[indexPath.row];
 		cell.textLabel.text = map.name;
 
+        UIImage *backgroundImage = map.thumbnail;
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        imageView.alpha = 0.8f;
+        cell.backgroundView = imageView;
+        
 		return cell;
 	}
 
@@ -136,13 +152,29 @@
 		cell.detailTextLabel.text = map.sharedBy;
 		cell.imageView.image = map.thumbnail;
 
+        UIColor *tintColor = [UIColor colorWithRed:140/255.0f green:70/255.0f blue:35/255.0f alpha:0.2f];
+        UIImage *backgroundImage = [map.thumbnail applyBlurWithRadius:2
+                                                            tintColor:tintColor
+                                                saturationDeltaFactor:0.8
+                                                            maskImage:nil];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
+        imageView.alpha = 0.8f;
+        cell.backgroundView = imageView;
+        
+        cell.imageView.layer.cornerRadius = 30.0f;
+        cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+        cell.imageView.layer.borderWidth = 1.0f;
+        cell.imageView.clipsToBounds = YES;
+        
 		return cell;
 	}
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	// The storyboard has a ShowMap segue that is already connected to the
+	// The storyboard dhas a ShowMap segue that is already connected to the
 	// regular cells. But the search's table view uses different cells, so
 	// for those we need to trigger the segue manually.
 
@@ -152,6 +184,16 @@
 	} else {
 		[self hideSwipeMenuAnimated];
 	}
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.2f];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.0f alpha:0.8f];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.textColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+    cell.tintColor = cell.textLabel.textColor;
 }
 
 #if CUSTOM_APPEARANCE
@@ -182,6 +224,7 @@
 
 	cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableCellSelection"]];
 	cell.backgroundColor = [UIColor clearColor];
+    
 }
 #endif
 

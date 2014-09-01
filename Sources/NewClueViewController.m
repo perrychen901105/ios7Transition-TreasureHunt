@@ -1,5 +1,7 @@
 
 #import "NewClueViewController.h"
+#import "UIImage+ImageEffects.h"
+
 
 @interface NewClueViewController ()
 @property (nonatomic, weak) IBOutlet UIView *contentView;
@@ -17,6 +19,9 @@
 
     self.contentView.layer.cornerRadius = 6.0f;
     
+    _imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
+    [self.contentView insertSubview:_imageView atIndex:0];
+    self.contentView.clipsToBounds = YES;
 	#if CUSTOM_APPEARANCE
 	UIImage *buttonImage = [[UIImage imageNamed:@"BarButtonItem-Portrait"] resizableImageWithCapInsets:UIEdgeInsetsMake(0.0f, 7.0f, 0.0f, 7.0f)];
 
@@ -40,6 +45,39 @@
 	#endif
 }
 
+- (void)updateImageView
+{
+    // 1
+    /*
+     *  Create a new UIView by making a snapshot of the parent view controller's view, but only the section that is covered by the actual clue sheet
+     */
+    UIView *snapshotView = [self.parentViewController.view
+                            resizableSnapshotViewFromRect:self.contentView.frame
+                            afterScreenUpdates:YES withCapInsets:UIEdgeInsetsZero];
+    
+    // 2
+    /*
+     *  Draw this snapshot into a new graphics context in order to convert it to a UIImage.
+     */
+    UIGraphicsBeginImageContextWithOptions(self.contentView.bounds.size, YES, 0.0f);
+    BOOL result = [snapshotView drawViewHierarchyInRect:self.contentView.bounds afterScreenUpdates:YES];
+    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    // 3
+    /*
+     *  Apply blur to the image using the helper method and place it into an image view.
+     */
+    if (result) {
+        UIColor *tintColor = [UIColor colorWithWhite:0.97 alpha:0.82];
+        UIImage *blurredImage = [snapshotImage applyBlurWithRadius:4
+                                                         tintColor:tintColor
+                                             saturationDeltaFactor:1.8
+                                                         maskImage:nil];
+        _imageView.image = blurredImage;
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
@@ -47,6 +85,7 @@
     
     self.view.window.tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
     self.view.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
+    [self updateImageView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
